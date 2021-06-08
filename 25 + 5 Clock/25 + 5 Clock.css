@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    background-color: #1e1c36;
+    color: #ccc;
+    font-family: nunito, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.clock {
+    width: 600px;
+    background-color: #1c234e;
+    border-radius: 7px;
+    border: solid 4px rebeccapurple;
+    padding: 15px 0;
+}
+
+.clock h1 {
+    color: #eaeaea;
+    font-weight: 700;
+    font-size: 37px;
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+.contain {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 40px;
+}
+
+.break, .session {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.break-contain, .session-contain {
+    display: flex;
+    justify-content: center;
+}
+
+.br {
+    margin: auto 7px;
+    font-size: 18px;
+}
+
+.time {
+    border-radius: 10px;
+    min-width: 150px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.time-contain {
+    border: solid 5px rebeccapurple;
+    border-radius: 20px;
+    background-color: #1c234e;
+    color: #eaeaea;
+    width: 220px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+#timer-label {
+    text-align: center;
+}
+#timer-label span {
+    font-weight: 800;
+    font-size: 27px;
+    text-transform: capitalize;
+}
+#time-left {
+    padding: 5px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+.action {
+    border: solid 4px rebeccapurple;
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+button span {
+    font-weight: 900;
+    font-size: 20px;
+}
+.footer {
+    color: #eee;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+@media(max-width: 651px) {
+    .clock {
+        width: 480px;
+        margin-top: 30px;
+        padding: 15px 5px;
+    }
+    
+    h1 {
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .time-contain {
+        width: 180px;
+        padding: 10px;
+        border-radius: solid 3px rebeccapurple;
+    }
+
+    #timer-label span {
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: capitalize;
+    }
+    #time-left {
+        padding: 5px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    button span {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .action button {
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clock {
+        width: 100%;
+        min-height: 100vh;
+        border: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contain {
+        padding: 5px 15px;
+    }
+
+}

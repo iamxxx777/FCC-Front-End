@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drumpad Machine</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="Drumpad.css">
+</head>
+<body>
+    <div id="root"></div>
+
+
+<script type="text/babel">
+    const Variables = {
+    "X":{src: 'https://freewavesamples.com/files/Casio-MT-45-Tango.wav', id: "X", class: 'clip', type: 'X Note'},
+    "C":{src: 'https://freewavesamples.com/files/Hip-Hop-Snare-2.wav', id: "C", class: 'clip', type: 'C Note'},
+    "Z":{src: 'https://freewavesamples.com/files/High-Conga-1.wav', id: "Z", class: 'clip', type: 'Z Note'},
+    "D":{src: 'https://freewavesamples.com/files/Casio-MT-45-Samba.wav', id: "D", class: 'clip', type: 'D Note'},
+    "S":{src: 'https://freewavesamples.com/files/Casio-MT-600-Funky-Clavi-C2.wav', id: "S", class: 'clip', type: 'S Note'},
+    "A":{src: 'https://freewavesamples.com/files/Electronic-Kick-1.wav', id: "A", class: 'clip', type: 'A Note'},
+    "E":{src: 'https://freewavesamples.com/files/Bass-Drum-3.wav', id: "E", class: 'clip', type: 'E Note'},
+    "W":{src: 'https://freewavesamples.com/files/Guiro.wav', id: "W", class: 'clip', type: 'W Note'},
+    "Q":{src: 'https://freewavesamples.com/files/Casio-MT-45-Disco.wav', id: "Q", class: 'clip', type: 'Q Note'},
+};
+
+const Display = props => {
+    return <h1 id="display">{props.display}</h1>;
+};
+
+class Drum extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            display: "Let's Make Some Music!"
+        }
+        this.handleClick =  this.handleClick.bind(this);
+        this.handlePlay = this.handlePlay.bind(this);
+        this.handleDisplay = this.handleDisplay.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    };
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyPress);
+    }
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyPress);
+    }
+    handleClick(event) {
+        let element = event.target;
+        let audio = element.querySelector('audio');
+        let newDisplay = Variables[audio.id].type;
+        this.handlePlay(audio);
+        this.handleDisplay(newDisplay);
+    }
+    handlePlay(audio) {
+        audio.currentTime = 0;
+        audio.play();
+    }
+    handleDisplay(newDisplay) {
+        this.setState({
+            display: "Now Playing: " + newDisplay
+        });
+    }
+    handleKeyPress(event) {
+        let key = event.key.toUpperCase();
+        console.log(key);
+        let keyed = document.getElementById(key).parentElement;
+        console.log(keyed);
+        keyed.click();
+    }
+    render() {
+        return (
+         <section id="drum-machine">
+          <div className="drum">
+            <div className="contain">
+            <Display display={this.state.display}/>
+            <button className="btn btn-primary drum-pad" id="Qs" onClick={this.handleClick}>
+                Q
+                <audio src={Variables.Q.src} id="Q" className="clip"></audio>
+            </button>
+            <button className="btn btn-success drum-pad" id="Ws" onClick={this.handleClick}>
+                W
+                <audio src={Variables.W.src} id="W" className="clip"></audio>
+            </button>
+            <button className="btn btn-primary drum-pad" id="Es" onClick={this.handleClick}>
+                E
+                <audio src={Variables.E.src} id="E" className="clip"></audio>
+            </button>
+            <button className="btn btn-success drum-pad" id="As" onClick={this.handleClick}>
+                A
+                <audio src={Variables.A.src} id="A" className="clip"></audio>
+            </button>
+            <button className="btn btn-danger drum-pad" id="Ss" onClick={this.handleClick}>
+                S
+                <audio src={Variables.S.src} id="S" className="clip"></audio>
+            </button>
+            <button className="btn btn-success drum-pad" id="Ds" onClick={this.handleClick}>
+                D
+                <audio src={Variables.D.src} id="D" className="clip"></audio>
+            </button>
+            <button className="btn btn-primary drum-pad" id="Zs" onClick={this.handleClick}>
+                Z
+                <audio src={Variables.Z.src} id="Z" className="clip"></audio>
+            </button>
+            <button className="btn btn-success drum-pad" id="Xs" onClick={this.handleClick}>
+                X
+                <audio src={Variables.X.src} id="X" className="clip"></audio>
+            </button>
+            <button className="btn btn-primary drum-pad" id="Cs" onClick={this.handleClick}>
+                C
+                <audio src={Variables.C.src} id="C" className="clip"></audio>
+            </button>
+        </div>
+       </div>
+      </section>
+    );
+    }
+}
+ReactDOM.render(<Drum/>, document.getElementById('root'));
+</script>
+</body>
+</html>

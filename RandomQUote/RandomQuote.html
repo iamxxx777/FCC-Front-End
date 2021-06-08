@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="RandomQuote.css">
+</head>
+<body>
+    <div id="quote-box" class="quote-box">
+     <div class="contain">
+         <h2 id="title">Random Quote Generator</h2>
+         <hr style="background-color: #eaeaea">
+        <div id="text" class="t-text">
+            <p class="text">
+               <span class="fa fa-quote-left"></span> 
+               <span class="quotes">
+                You have power over your mind, not outside events. Realize this,
+                and you will find strength.
+                </span>
+            </p>
+        </div>
+        <div id="author">
+            <h5>- Marcus Aurelius</h5>
+        </div>
+        <div class="line"></div>
+        <div class="group">
+            <a href="twitter.com/intent/tweet" title="Tweet this quote" id="tweet-quote" class="btn btn-primary">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="btn btn-success" title="Share on facebook">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="btn btn-danger" title="Instagram this quote">
+                <i class="fa fa-instagram"></i>
+            </a>
+        </div>
+      </div>
+
+      <button id="new-quote" class="btn btn-primary btn-block">New quote</button>
+      
+    </div>
+
+<script>
+      
+
+const quotes = [
+    "We are what we repeatedly do. Excellence, then, is not an act, but a habit",
+    "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on.",
+    "If you hear a voice within you say ‘you cannot paint,’ then by all means paint and that voice will be silenced.",
+    "Some people want it to happen, some wish it would happen, others make it happen.",
+    "In a gentle way, you can shake the world.",
+    "All our dreams can come true, if we have the courage to pursue them.",
+    "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.",
+    "A man who stands for nothing will fall for anything",
+    "I have a dream that one day little black boys and girls will be holding hands with little white boys and girls.",
+    "The future belongs to those who believe in the beauty of their dreams.",
+    "You miss 100 percent of the shots you never take.",
+    "You only live once, but if you do it right, once is enough.",
+    "Genius is one percent inspiration, ninety-nine percent perspiration.",
+    "The best way to predict your future is to create it.",
+    "If not us, who? If not now, when?",
+    "When our memories outweigh our dreams, it is then that we become old.",
+    "Those who say it can’t be done are usually interrupted by others doing it.",
+    "Do what you have to do, to do what you want to do.",
+    "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    "Lots of people want to ride with you in the limo, but what you want is someone who will take the bus with you when the limo breaks down.",
+    "Always forgive your enemies; nothing annoys them so much.",
+    "Always roll up the sleeves on your shirt. It gives the impression that you’re working, even if you’re not.",
+    "You laugh at me because I’m different I laugh at you because you’re all the same.",
+    "Truth is like the sun. You can shut it out for a time, but it ain’t goin’ away.",
+    "Life is not a problem to be solved, but a reality to be experienced.",
+    "The two most important days in your life are the day you are born and the day you find out why.",
+    ];
+
+    const author = [
+        '- Aristotle',
+        '– Sheryl Sandberg',
+        '– Vincent Van Gogh',
+        '– Michael Jordan',
+        '– Mahatma Ghandi',
+        '– Walt Disney',
+        '– Bruce Lee',
+        '– Malcom X',
+        '- Martin Luther King Jr',
+        '- Eleanor Roosevelt',
+        '- Wayne Gretzky',
+        '- Mae West',
+        '– Thomas A Edison',
+        '– Abraham Lincoln',
+        '– John F. Kennedy',
+        '– BIll Clinton',
+        '– James Baldwin',
+        '– Denzel Washington',
+        '– Nelson Mandela',
+        '– Oprah Winfrey',
+        '– Oscar Wilde',
+        '– Ashton Kutcher',
+        '– Lady Gaga',
+        '– Elvis Presley',
+        '– Søren Kierkegaard',
+        '– Mark Twain',
+    ];
+
+    const title = "Random Quote Generator";
+    let count = 1;
+
+    function update() {
+        let h2 = document.getElementById('title');
+        h2.innerText = title.slice(0, count);
+        count++;
+        if (count > title.length) count = 1;
+    }
+    setInterval(update, 150);
+
+
+    $(document).ready(function() {
+
+        $('#new-quote').on('click', function(){
+            let index = Math.floor(Math.random() * 27);
+            $('#text').hide();
+            $('.quotes').text(quotes[index]);
+            $('#text').fadeIn(800);
+            $('h5').hide();
+            $('h5').text(author[index]).fadeIn(800);
+    
+        });
+    })
+
+
+      
+</script>
+</body>
+</html>

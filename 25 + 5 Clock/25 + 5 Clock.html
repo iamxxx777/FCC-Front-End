@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="25 + 5 Clock.css">
+    <title>25 + 5 Clock</title>
+</head>
+<body class='body'>
+    <section class="clock">
+        <h1>25 + 5 Clock</h1>
+
+        <div class="contain">
+                <div class="break">
+                    <h3 id="break-label">Break Length</h3>
+                    <div class="break-contain">
+                        <button id="break-decrement" class="btn btn-primary br"><span>-</span></button>
+                        <div id="break-length" class="br"><b>5</b></div>
+                        <button id="break-increment" class="btn btn-success br"><span>+</span></button>
+                    </div>
+                </div>
+                <div class="session">
+                    <h3 id="session-label">Session Length</h3>
+                    <div class="session-contain">
+                        <button id="session-decrement" class="btn btn-primary br"><span>-</span></button>
+                        <div id="session-length" class="br"><b>25</b></div>
+                        <button id="session-increment" class="btn btn-success br"><span>+</span></button>
+                    </div>
+                </div>
+        </div>
+
+        <div class="time">
+                <div class="time-contain">
+                    <div id="timer-label"><span>Session</span></div>
+                    <div id="time-left"></div>
+                </div>
+                <div class="action">
+                    <button id="start_stop" class="btn btn-info"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
+                    <button id="reset" class="btn btn-danger"><i class="fa fa-refresh fa-2x"></i></button>
+                </div>
+        </div>
+
+        <div class="footer">
+            <span>
+                Developed by Dayo-Ajobiewe Hope. 
+            </span>
+            <audio src="https://freewavesamples.com/files/Casio-MT-45-Tango.wav" id="beep"></audio>
+        </div>
+    </section>
+
+    <script src="25 + 5 Clock.js"></script>
+</body>
+</html>
